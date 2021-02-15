@@ -966,7 +966,7 @@ class util:
                     dns = resolve(ip)
 
                 data.append((mac, ip, dns, p))
-            except Exception, e:
+            except Exception as e:
                 pass
 
         return data
