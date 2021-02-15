@@ -1,3 +1,4 @@
+from __future__ import print_function
 from sqlalchemy import *
 from sqlalchemy.orm import *
 
@@ -723,7 +724,7 @@ class Admin(object):
         while time.time() < timeout_time:
             Session.refresh(self)
             status=self.status
-            #print status
+            #print(status)
             #sys.stdout.flush()
             if status in ('done','error'):
                 break
@@ -1023,9 +1024,10 @@ def refresh_device_entry():
 def wait_for_jobs():
     jobs = Admin.get_pending()
     tot = len(jobs)
-    print "%d total jobs" % tot
+    print("%d total jobs" % tot)
     for i,j in enumerate(jobs):
         d = j.device
-        print "%d/%d %s %s %s %s" %(i+1, tot, d and d.ip, d and d.name, j.action, j.subaction)
+        print("%d/%d %s %s %s %s" %(i+1, tot, d and d.ip, d and d.name, j.action, j.subaction))
         j.wait()
-        print
+        print()
+
