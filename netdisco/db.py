@@ -12,9 +12,9 @@ import socket
 import os
 
 
-import ConfigParser
+import configparser
 
-c = ConfigParser.ConfigParser()
+c = configparser.ConfigParser()
 path = os.getenv("NETDISCO_DB_CFG")
 if path:
     c.read([path])
