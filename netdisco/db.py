@@ -513,7 +513,7 @@ class Port(object):
     @classmethod
     def find_all(self, ip=None, mac=None):
         if not (ip or mac):
-            raise ValueError, "Specify an ip or a mac"
+            raise ValueError("Specify an ip or a mac")
 
         crit = [Port.ip==Node.switch, Port.port==Node.port]
         if mac:
